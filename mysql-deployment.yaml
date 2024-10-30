@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
+  namespace: mysql
 spec:
   replicas: 1
   selector:
@@ -17,3 +18,6 @@ spec:
           image: 835512929652.dkr.ecr.us-east-1.amazonaws.com/mysql-image-repo:latest
           ports:
             - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "rootpassword"  # Replace with a secure password
