@@ -13,6 +13,8 @@ spec:
       labels:
         app: mysql
     spec:
+      imagePullSecrets:
+        - name: ecr-secret
       containers:
         - name: mysql
           image: 835512929652.dkr.ecr.us-east-1.amazonaws.com/mysql-image-repo:latest
@@ -20,4 +22,4 @@ spec:
             - containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "rootpassword"  # Replace with a secure password
+              value: "rootpassword"  # Replace with secure password
